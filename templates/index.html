@@ -1,0 +1,53 @@
+<!doctype html>
+<title>Hello from Flask</title>
+{% if name %}
+  <h1>Hello {{ name }}!</h1>
+{% else %}
+  <h1></h1>
+{% endif %}
+<br>
+<div style="width: 90%;">
+   <div style="float:left; width: 60%; padding-left: 20px;">
+   	<img src="/static/crop1.png" width="100%" alt="Mountain View">
+   </div>
+   <div style="float:left; padding-left: 20px;">
+   	<textarea id="texta" rows="6" cols="40"></textarea>
+   </div>
+   <button type="button">Previous block</button><button type="button">Next block</button><button type="button" style="padding-left: 20px; padding-right: 20px; margin-left: 40px;">Save</button><br><br>
+   <button type="button">Previous page</button><button type="button">Next page</button>
+   <button type="button" style="margin-left: 40px;" onclick="add('©')">©</button><button type="button" onclick="add('®')">®</button>
+</div>
+<br>
+<br>
+<script type="text/javascript">
+    function zoomin(){
+        var myImg = document.getElementById("example");
+        var currWidth = myImg.clientWidth;
+        if(currWidth == 500){
+            alert("Maximum zoom-in level reached.");
+        } else{
+            myImg.style.width = (currWidth + 50) + "px";
+        } 
+    }
+    function zoomout(){
+        var myImg = document.getElementById("example");
+        var currWidth = myImg.clientWidth;
+        if(currWidth == 50){
+            alert("Maximum zoom-out level reached.");
+        } else{
+            myImg.style.width = (currWidth - 50) + "px";
+        }
+    }
+    function add(text){
+        var TheTextBox = document.getElementById("texta");
+        TheTextBox.value = TheTextBox.value + text;
+    }
+</script>
+<p style="page-break-before: always">
+	<tr>
+Write as displayed. Drop extra spaces. Example transcription:<br>
+<img src="/static/example.png" id="example" width="20%"><br>
+<button type="button" onclick="zoomin()">Larger</button>
+<button type="button" onclick="zoomout()">Smaller</button>
+</tr>
+<div style="clear:both"></div>
